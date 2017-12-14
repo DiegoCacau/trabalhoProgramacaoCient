@@ -274,4 +274,45 @@ jQuery(document).ready(function() {
     	}
     }
 
+    jQuery("#rk1").click(function(){
+    	jQuery(".hidTarget").addClass("hid2");
+    	jQuery("#formRk1").removeClass("hid2");
+    });
+
+    jQuery("#rk2").click(function(){
+    	jQuery(".hidTarget").addClass("hid2");
+    	jQuery("#formRk2").removeClass("hid2");
+    	
+    });
+
+    jQuery("#rk3").click(function(){
+    	jQuery(".hidTarget").addClass("hid2");
+    	jQuery("#formRk3").removeClass("hid2");
+    	
+    });
+
+    jQuery("#rk4").click(function(){
+    	jQuery(".hidTarget").addClass("hid2");
+    	jQuery("#formRk4").removeClass("hid2");
+    	
+    });
+
+    jQuery("#paM").click(function(){
+    	jQuery(".hidTarget").addClass("hid2");
+    	jQuery("#formPM").removeClass("hid2");
+    	
+    });
+
+    jQuery("#meIm").click(function(){
+    	jQuery(".hidTarget").addClass("hid2");
+    	jQuery("#formMI").removeClass("hid2");
+    	
+    });
+
+    jQuery("#prm").click(function(){
+    	jQuery(".hidTarget").addClass("hid2");
+    	jQuery("#formPro").removeClass("hid2");
+    	
+    });
+
 });

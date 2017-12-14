@@ -32,7 +32,7 @@
 
 				<button class="btn btn-default" id="rodar">Executar Teste</button>
 
-				<div id="formRk1">
+				<div class="hid2 hidTarget" id="formRk1">
 					<h3>Runge-Kutta de primeira ordem</h3>
 					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
 					<p><strong>Para</strong> k = 0, 1, 2,...</p>
@@ -41,7 +41,7 @@
 					<p>y<sub>k+1</sub> = y<sub>k</sub> + h * f(x<sub>k</sub>, y<sub>k</sub>) </p>
 				</div>
 
-				<div id="formRk2">
+				<div class="hid2 hidTarget" id="formRk2">
 					<h3>Runge-Kutta de segunda ordem</h3>
 					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
 					<p><strong>Para</strong> k = 0, 1, 2,...</p>
@@ -51,7 +51,7 @@
 					<p>y<sub>k+1</sub> = y<sub>k</sub> + 1/2 * (m<sub>0</sub> + m<sub>1</sub>) </p>
 				</div>
 
-				<div id="formRk3">
+				<div class="hid2 hidTarget" id="formRk3">
 					<h3>Runge-Kutta de terceira ordem</h3>
 					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
 					<p><strong>Para</strong> k = 0, 1, 2,...</p>
@@ -62,7 +62,7 @@
 					<p>y<sub>k+1</sub> = y<sub>k</sub> + 1/6 * (m<sub>0</sub> + 4*m<sub>1</sub> + m<sub>2</sub>) </p>
 				</div>
 
-				<div id="formRk4">
+				<div class="hid2 hidTarget" id="formRk4">
 					<h3>Runge-Kutta de quarta ordem</h3>
 					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
 					<p><strong>Para</strong> k = 0, 1, 2,...</p>
@@ -74,28 +74,39 @@
 					<p>y<sub>k+1</sub> = y<sub>k</sub> + 1/6 * (m<sub>0</sub> + 2*m<sub>1</sub> + 2*m<sub>2</sub> + m<sub>3</sub>) </p>
 				</div>
 
-				<div id="formRk1">
+				<div class="hid2 hidTarget" id="formPM">
+					<h3>Método de passo múltiplo (Adams-Bashforth)</h3>
 					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
 					<p><strong>Para</strong> k = 0, 1, 2,...</p>
 					<br>
 					<p>y<sub>k+2</sub> = y<sub>k+1</sub> + h/2 * [3 * f(t<sub>k+1</sub>, y<sub>k+1</sub>) - f(t<sub>k</sub>, y<sub>k</sub>)] </p>
 				</div>
 
-				<div id="formRk1">
+				<div class="hid2 hidTarget" id="formMI">
+					<h3>Método Implícito (método dos trapézios)</h3>
 					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
 					<p><strong>Para</strong> k = 0, 1, 2,...</p>
 					<br>
 					<p>y<sub>k+1</sub> = y<sub>k</sub> + h/2 * [f(t<sub>k</sub>, y<sub>k</sub>) + f(t<sub>k+1</sub>, y<sub>k+1</sub>)] </p>
 				</div>
+
+				<div class="hid2 hidTarget" id="formPro">
+					<h3>Problema</h3>
+					<p>Um foguete de massa m=0.11kg é lançado verticalmente com velocidade inicial v(0) = 9m/seg. Pela segunda lei de Newton, a equação diferencial da velociade v(t) é: 
+					<h5>m*v' = m*g - k*v*|v|</h5>
+					Onde k = 0.002kg/m e g = -9.8m/seg<sup>2</sup>.</p>
+				</div>
+
 			</div>
-			<div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+			<div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+				<h1>Fórmulas</h1>
 				<button class="btn btn-default" id="prm">Ver Problema</button>
 				<button class="btn btn-default" id="rk1">Ver Runge Kutta 1</button>
 				<button  class="btn btn-default" id="rk2">Ver Runge Kutta 2</button>
 				<button class="btn btn-default" id="rk3">Ver Runge Kutta 3</button>
 				<button class="btn btn-default" id="rk4">Ver Runge Kutta 4</button>
-				<button class="btn btn-default" id="paM">Ver Runge Kutta 5</button>
-				<button class="btn btn-default" id="meIm">Ver Runge Kutta 5</button>
+				<button class="btn btn-default" id="paM">Ver Passo Múltiplo</button>
+				<button class="btn btn-default" id="meIm">Ver Implícito</button>
 			</div>
 		</div>
 		

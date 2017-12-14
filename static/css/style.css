@@ -6,6 +6,8 @@
 	display: none !important;
 }
 
+
+
 #inputArea > div{
 	margin: 0 !important;
     padding: 0 !important;
@@ -25,4 +27,8 @@
 
 #rodar{
 	margin: 30px 0;
+}
+
+body{
+	padding-top: 50px;
 }
