@@ -17,7 +17,117 @@
 
 
 </head>
-<body>
+<body>	
+	<div id="inputArea">
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+			<div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<label for="tempo">Entre com o valor máximo do tempo: </label>
+					<input id="tempo" type="text" name="tempo" value="">
+				</div>
+				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<label for="tempo">Entre com o valor de dt: </label>
+					<input id="aga" type="text" name="aga" value="">
+				</div>
+
+				<button class="btn btn-default" id="rodar">Executar Teste</button>
+
+				<div id="formRk1">
+					<h3>Runge-Kutta de primeira ordem</h3>
+					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
+					<p><strong>Para</strong> k = 0, 1, 2,...</p>
+					<p>y<sub>0</sub> = y(x<sub>0</sub>)</p>
+					<br>
+					<p>y<sub>k+1</sub> = y<sub>k</sub> + h * f(x<sub>k</sub>, y<sub>k</sub>) </p>
+				</div>
+
+				<div id="formRk2">
+					<h3>Runge-Kutta de segunda ordem</h3>
+					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
+					<p><strong>Para</strong> k = 0, 1, 2,...</p>
+					<p>m<sub>0</sub> = h * f(x<sub>k</sub>, y<sub>k</sub>)</p>
+					<p>m<sub>1</sub> = h * f(x<sub>k</sub> + h, y<sub>k</sub> + m<sub>0</sub>)</p>
+					<br>
+					<p>y<sub>k+1</sub> = y<sub>k</sub> + 1/2 * (m<sub>0</sub> + m<sub>1</sub>) </p>
+				</div>
+
+				<div id="formRk3">
+					<h3>Runge-Kutta de terceira ordem</h3>
+					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
+					<p><strong>Para</strong> k = 0, 1, 2,...</p>
+					<p>m<sub>0</sub> = h * f(x<sub>k</sub>, y<sub>k</sub>)</p>
+					<p>m<sub>1</sub> = h * f(x<sub>k</sub> + h/2, y<sub>k</sub> + m<sub>0</sub>/2)</p>
+					<p>m<sub>2</sub> = h * f(x<sub>k+1</sub>, y<sub>k</sub> - m<sub>0</sub> + 2*m<sub>1</sub>)</p>
+					<br>
+					<p>y<sub>k+1</sub> = y<sub>k</sub> + 1/6 * (m<sub>0</sub> + 4*m<sub>1</sub> + m<sub>2</sub>) </p>
+				</div>
+
+				<div id="formRk4">
+					<h3>Runge-Kutta de quarta ordem</h3>
+					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
+					<p><strong>Para</strong> k = 0, 1, 2,...</p>
+					<p>m<sub>0</sub> = h * f(x<sub>k</sub>, y<sub>k</sub>)</p>
+					<p>m<sub>1</sub> = h * f(x<sub>k</sub> + h/2, y<sub>k</sub> + m<sub>0</sub>/2)</p>
+					<p>m<sub>2</sub> = h * f(x<sub>k</sub> + h/2, y<sub>k</sub> + m<sub>1</sub>/2)</p>
+					<p>m<sub>3</sub> = h * f(x<sub>k+1</sub>, y<sub>k</sub> + m<sub>2</sub>)</p>
+					<br>
+					<p>y<sub>k+1</sub> = y<sub>k</sub> + 1/6 * (m<sub>0</sub> + 2*m<sub>1</sub> + 2*m<sub>2</sub> + m<sub>3</sub>) </p>
+				</div>
+
+				<div id="formRk1">
+					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
+					<p><strong>Para</strong> k = 0, 1, 2,...</p>
+					<br>
+					<p>y<sub>k+2</sub> = y<sub>k+1</sub> + h/2 * [3 * f(t<sub>k+1</sub>, y<sub>k+1</sub>) - f(t<sub>k</sub>, y<sub>k</sub>)] </p>
+				</div>
+
+				<div id="formRk1">
+					<h4><strong>Dados</strong> y<sub>0</sub>, h, f(x,y)</h4>
+					<p><strong>Para</strong> k = 0, 1, 2,...</p>
+					<br>
+					<p>y<sub>k+1</sub> = y<sub>k</sub> + h/2 * [f(t<sub>k</sub>, y<sub>k</sub>) + f(t<sub>k+1</sub>, y<sub>k+1</sub>)] </p>
+				</div>
+			</div>
+			<div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+				<button class="btn btn-default" id="prm">Ver Problema</button>
+				<button class="btn btn-default" id="rk1">Ver Runge Kutta 1</button>
+				<button  class="btn btn-default" id="rk2">Ver Runge Kutta 2</button>
+				<button class="btn btn-default" id="rk3">Ver Runge Kutta 3</button>
+				<button class="btn btn-default" id="rk4">Ver Runge Kutta 4</button>
+				<button class="btn btn-default" id="paM">Ver Runge Kutta 5</button>
+				<button class="btn btn-default" id="meIm">Ver Runge Kutta 5</button>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+	</div>	
+
+	<div id="resultArea">
+		<table id="myTable" class="table hid">
+		  <thead>
+		    <tr>
+		      <th scope="col">Tempo</th>
+		      <th scope="col">RK 1ª Ordem</th>
+		      <th scope="col">RK 2ª Ordem</th>
+		      <th scope="col">RK 3ª Ordem</th>
+		      <th scope="col">RK 4ª Ordem</th>
+		      <th scope="col">Passo Múltiplo</th>
+		      <th scope="col">Método Implícito</th>
+		    </tr>
+		  </thead>
+		  <tbody id="tableBody">
+		    <!-- <tr>
+		      <th scope="row">1</th>
+		    </tr> -->
+		  </tbody>
+		</table>
+
+			
+		
+	</div>
 	
 
 </body>
