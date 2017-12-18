@@ -8,12 +8,13 @@ jQuery(document).ready(function() {
 		}
 		var tempo = parseInt(document.getElementById("tempo").value);
 		var aga = document.getElementById("aga").value;
+		var correcao = parseInt(document.getElementById("quantidade").value);
 		var rk1 = initRk1(tempo,aga);
 		var rk2 = initRk2(tempo,aga);
 		var rk3 = initRk3(tempo,aga);
 		var rk4 = initRk4(tempo,aga);
-		var mult = multipleSteps(tempo,aga,rk1);
-		var imp = implicitMethod(tempo,aga,rk1);
+		var mult = multipleSteps(tempo,aga,rk2);
+		var imp = implicitMethod(tempo,aga, correcao);
 
 		populateTable(aga,rk1,rk2,rk3,rk4,mult,imp);
 		
@@ -23,6 +24,17 @@ jQuery(document).ready(function() {
 
 
 	jQuery("#tempo").keydown(function (e) {
+        if (jQuery.inArray(e.keyCode, [8, 9, 27, 13, 110, 188]) !== -1 ||
+            (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                 return;
+        }
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+    jQuery("#correcao").keydown(function (e) {
         if (jQuery.inArray(e.keyCode, [8, 9, 27, 13, 110, 188]) !== -1 ||
             (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
             (e.keyCode >= 35 && e.keyCode <= 40)) {
@@ -175,11 +187,12 @@ jQuery(document).ready(function() {
     }
 
     
-    function implicitMethod(temp, p, arr1, vIn=8){
-    	//método dos trapézios
+    function implicitMethod(temp, p, corr, vIn=8){
+    	// método dos trapézios
 
     	var passo = p.replace(",", ".");
     	passo = Number(passo);
+    	corr = parseInt(corr);
     	var result = [];
     	var m0,m1;
     	var vInicial = 8;
@@ -195,7 +208,17 @@ jQuery(document).ready(function() {
 	    		m1 = (passo*f(i,vInicial))+vInicial;
 	    		m1 = f(i,m1);
 
-	    		result.push(vInicial + ((m0+m1)*passo)/2);
+	    		val = vInicial + ((m0+m1)*passo)/2;
+	    		
+	    		if(corr <= 0) corr=1;
+
+	    		
+	    		for(var kk=0;kk<corr;kk++){
+    				val = vInicial + passo * f(i,val);
+    			}
+	    		
+
+	    		result.push(val);
 	    		
 	    		
 	    	}
@@ -205,7 +228,19 @@ jQuery(document).ready(function() {
 	    		m0 = f(i-passo,v);
 	    		m1 = (passo*f(i,v))+v;
 	    		m1 = f(i,m1);
-	    		result.push(v + ((m0+m1)*passo)/2);
+	    		
+
+	    		val = v + ((m0+m1)*passo)/2;
+	    		
+	    		if(corr <= 0) corr=1
+
+	    		
+	    		for(var kk=0;kk<corr;kk++){
+    				val = v + passo * f(i,val);
+    			}
+	    		
+
+	    		result.push(val);
 	    		
 	    	}
 
