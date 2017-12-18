@@ -214,7 +214,8 @@ jQuery(document).ready(function() {
 
 	    		
 	    		for(var kk=0;kk<corr;kk++){
-    				val = vInicial + passo * f(i,val);
+    				val = vInicial + (passo * f(i,val));
+    				console.log("Correcao: ",kk, "  ",val);
     			}
 	    		
 
@@ -236,7 +237,8 @@ jQuery(document).ready(function() {
 
 	    		
 	    		for(var kk=0;kk<corr;kk++){
-    				val = v + passo * f(i,val);
+    				val = v + (passo * f(i,val));
+    				console.log("Correcao: ",kk, "  ",val);
     			}
 	    		
 
